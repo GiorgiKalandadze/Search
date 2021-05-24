@@ -3,6 +3,7 @@ const app = express()
 const port = 4000
 const bodyParser = require('body-parser')
 const jsonParser = bodyParser.json()
+app.use(jsonParser) 
 app.use(express.static(__dirname + '/public'));
 
 

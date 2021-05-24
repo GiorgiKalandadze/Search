@@ -1,0 +1,29 @@
+{
+  "name": "search",
+  "version": "1.0.0",
+  "description": "Employee Search",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiorgiKalandadze/Search.git"
+  },
+  "keywords": [
+    "Search",
+    "Nodejs",
+    "MongoDB"
+  ],
+  "author": "Giorgi Kalandadze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GiorgiKalandadze/Search/issues"
+  },
+  "homepage": "https://github.com/GiorgiKalandadze/Search#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.8"
+  }
+}

@@ -1,0 +1,66 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    padding: 30px;
+    padding-bottom: 0px;
+}
+input{
+    display: block;
+    margin-bottom: 10px;
+    width: 200px;
+    border-radius: 5px;
+    font-size: 17px;
+    outline: none;
+}
+.btn{
+    width: 100px;
+    border-radius: 20px;
+    background-color: orange;
+    outline: none;
+    border:none;
+    opacity: 0.8;
+    color: white;
+    font-size: 17px;
+}
+.btn:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
+.people{
+    padding: 30px;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.person{
+    border: 1px solid black;
+    width: 300px;
+    height: 350px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.img-cont{
+    width: 100%;
+    height: 290px;
+    overflow-y: hidden;
+    margin-bottom: 10px;
+}
+.avatar{
+    width: 100%;
+}
+.fullName{
+    margin-left: 5px;
+    margin-bottom: 5px;
+    display: flex;
+}
+.firstName{
+    margin-right: 5px;
+}
+.department{
+    margin-left: 5px;
+}

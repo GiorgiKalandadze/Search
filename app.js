@@ -19,7 +19,7 @@ MongoClient.connect(dbURL,{
         dbo = db.db("Bog");
 });
 
-app.get('/',  function(req, res){
+app.get('/',  (req, res) => {
     res.sendFile('index.html', {root: __dirname });
 });
 
@@ -53,7 +53,7 @@ app.listen(port, () => {
 
 function insertPerson(name, surname, department, img){
     let newPerson = {firstName: name, secondName: surname, img:img, department:department};
-    dbo.collection("people").insertOne(newPerson, function(err, res) {
+    dbo.collection("people").insertOne(newPerson, (err, res)=> {
         if (err) throw err;
         console.log("1 document inserted");
       });

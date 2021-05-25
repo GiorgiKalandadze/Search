@@ -1,21 +1,24 @@
+const filter = {name: "", department: ""}
 document.getElementById('search').addEventListener('input', event => {
-    let name = document.getElementById('search').value;
-    let department = document.getElementById('department').value;
-    debounce(1000,name, department);
+    filter.name = event.target.value;
+    // let name = document.getElementById('search').value;
+    // let department = document.getElementById('department').value;
+    debounce(1000,filter);
 });
 document.getElementById('department').addEventListener('input', event => {
-    let name = document.getElementById('search').value;
-    let department = document.getElementById('department').value;
-    debounce(1000,name, department);
+    // let name = document.getElementById('search').value;
+    // let department = document.getElementById('department').value;
+    filter.department = event.target.value;
+    debounce(1000,filter);
 });
 
 let timer = 0;
-function debounce(delay, name, department){
+function debounce(delay,filter){
     if(timer){
         clearTimeout(timer);
     }
     timer = setTimeout(()=>{
-        fetchData(name, department)
+        fetchData(filter.name, filter.department)
     }, delay);
 }
 

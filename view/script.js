@@ -1,13 +1,9 @@
 const filter = {name: "", department: ""}
 document.getElementById('search').addEventListener('input', event => {
     filter.name = event.target.value;
-    // let name = document.getElementById('search').value;
-    // let department = document.getElementById('department').value;
     debounce(1000,filter);
 });
 document.getElementById('department').addEventListener('input', event => {
-    // let name = document.getElementById('search').value;
-    // let department = document.getElementById('department').value;
     filter.department = event.target.value;
     debounce(1000,filter);
 });
@@ -18,17 +14,17 @@ function debounce(delay,filter){
         clearTimeout(timer);
     }
     timer = setTimeout(()=>{
-        fetchData(filter.name, filter.department)
+        fetchData(filter)
     }, delay);
 }
 
-async function fetchData(name, department){
-    let response = await fetch('/Search?' + new URLSearchParams({
-        name: name,
-        department: department
-    }));
-    let data = await response.json();
-    loadPeople(data.people);
+function fetchData(filter){
+    fetch('/Search?' + new URLSearchParams({
+        name: filter.name,
+        department: filter.department
+    })).then((response)=> response.json())
+        .then((data) => loadPeople(data.people))
+    .catch((err)=> console.log(err))
 }
 
 function loadPeople(people){
@@ -74,6 +70,7 @@ function generatePerson(person){
 async function start(){
     let responseAll = await fetch('/Search?' + new URLSearchParams({
         name: "",
+        department: ""
     }));
     let dataAll = await responseAll.json();
     loadPeople(dataAll.people);

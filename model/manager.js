@@ -2,15 +2,15 @@ const Connection = require("./connection");
 
 class Manager{
     static set(collection){
-        this._collection = collection;
+        Manager._collection = collection;
     }
     static get collection(){
-        return this._collection;
+        return Manager._collection;
     }
     static findEmployee(params){
         const queryName = params.name;
         const queryDep = params.department;
-        const people = Connection.db.collection(this.collection);
+        const people = Connection.db.collection(Manager.collection);
         const regexName = new RegExp(queryName, "gi");
         const regexDep = new RegExp(queryDep, "gi");
         const query = { $and: [ 
@@ -28,7 +28,7 @@ class Manager{
     
     static addEmployee(employee){
         const newPerson = {firstName: employee.name, secondName: employee.surname, img:employee.img, department:employee.department};
-        Connection.db.collection(this.collection).insertOne(newPerson, (err, res) => {
+        Connection.db.collection(Manager.collection).insertOne(newPerson, (err, res) => {
             if (err) {
                 console.error(err);
                 return;

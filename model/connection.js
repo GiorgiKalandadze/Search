@@ -1,9 +1,9 @@
 class Connection{
     static set(db){
-        this._db = db;
+        Connection._db = db;
     }
     static get db(){
-        return this._db;
+        return Connection._db;
     }
 }
 module.exports = Connection

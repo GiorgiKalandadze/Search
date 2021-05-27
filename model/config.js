@@ -1,9 +1,10 @@
 class Config {
-    static set(config){
-        this.port = config.port;
-        this.dbURL = config.dbURL;
-        this.dataBaseName = config.dataBaseName;
-        this.collectionName = config.collectionName;
+    static set(){
+        Config.port = 4000;
+        Config.dbURL = 'mongodb+srv://giorgi:giorgi@bogcluster.dzhv7.mongodb.net/' + 
+        'myFirstDatabase?retryWrites=true&w=majority',
+        Config.dataBaseName = "Bog";
+        Config.collectionName = "people";
     }
 }
 

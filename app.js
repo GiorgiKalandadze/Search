@@ -9,14 +9,8 @@ app.use(jsonParser)
 app.use(express.static(__dirname + '/view'));
 
 
-const configInfo = {
-    port: 4000,
-    dbURL : 'mongodb+srv://giorgi:giorgi@bogcluster.dzhv7.mongodb.net/' + 
-    'myFirstDatabase?retryWrites=true&w=majority',
-    dataBaseName: "Bog",
-    collectionName : "people"
-}
-Config.set(configInfo);
+
+Config.set();
 
 const MongoClient = require('mongodb').MongoClient;
 MongoClient.connect(Config.dbURL,{
@@ -28,6 +22,15 @@ MongoClient.connect(Config.dbURL,{
             return;
         }
         Connection.set(client.db(Config.dataBaseName));
+
+        // //Temporary - Already Inserted
+        // const newEmployee = {
+        //     name: "Anastasia",
+        //     surname: "Uridia",
+        //     img: "https://cdn2.iconfinder.com/data/icons/fashion-1-5/48/32-512.png",
+        //     department: "Research"
+        // }
+        // Manager.addEmployee(newEmployee);
 });
 Manager.set("people");
 
@@ -51,4 +54,3 @@ app.get('/*',  (req, res) => {
 app.listen(Config.port, () => {
     console.log(`Search app listening on port ${Config.port}!`);
 });
-

@@ -9,13 +9,14 @@ class Searcher{
         .catch((err)=> console.log(err))
     }
     static loadPeople(people){
-        document.querySelector('.people').innerHTML = '';
+        document.querySelector('employee-desk').setInnerHTML('');
         if(people.length < 1){
-            document.querySelector('.people').innerHTML = `No result   `;
+            document.querySelector('employee-desk').setInnerHTML(`No result`);
+            return;
         }
         for(let i = 0; i < people.length; i++){
             let newPerson = Searcher.generatePerson(people[i]);
-            document.querySelector('.people').appendChild(newPerson);
+            document.querySelector('employee-desk').appendEmployee(newPerson);
         }
     }
     static generatePerson(person){
@@ -27,3 +28,5 @@ class Searcher{
         return employee;
     }
 }
+
+export  {Searcher}

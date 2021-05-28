@@ -4,23 +4,15 @@
   <meta charset="UTF-8">
   <meta name="description" content="Search App">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="./style/index.css">
   <title>Search</title>
 </head>
 <body>
+    <employee-desk></employee-desk>
 
-    <div class="container">
-      <search-input type="text" id="search" name="username" placeholder="Name"></search-input>
-      <search-input type="text" id="department" name="department" placeholder="Department"></search-input>
-    </div>
-    <div class="people"></div>
-
-
-    <script  src="/components/search-input.js"></script>
-    <script  src="/components/employee-card.js"></script>
-    <script  src="/js/searcher.js"></script>
-    <script  src="/js/script.js"></script>
-    
-
+    <script  type="module" defer src="./components/search-input.js"></script>
+    <script  type="module" defer src="./components/employee-card.js"></script>
+    <script  type="module" defer src="./components/employee-desk.js"></script>
+    <script  type="module" defer src="./js/script.js"></script>   
 </body>
 </html>

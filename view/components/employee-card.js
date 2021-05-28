@@ -58,9 +58,6 @@ class EmployeeCard extends HTMLElement {
         this.attachShadow({mode:'open'}); 
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
-    connectedCallback() {
-    
-    }
     attributeChangedCallback(name, oldValue, newValue) {
         if(name === 'avatar'){
             this.shadowRoot.querySelector(`.${name}`).src = newValue;

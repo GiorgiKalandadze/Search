@@ -1,13 +1,15 @@
+import {Searcher} from './searcher.js'
+
 const filter = {name: "", department: ""};
 const delay = 1000;
 let timer = 0;
 
-document.getElementById('search').addEventListener('search-input-change', event => {
-    filter.name = event.detail.value;
-    debounce(filter);
-});
-document.getElementById('department').addEventListener('search-input-change', event => {
-    filter.department = event.detail.value;
+document.querySelector('employee-desk').addEventListener('search-event', (event) =>{
+    if(event.detail.name === 'username'){
+        filter.name = event.detail.value;
+    } else if(event.detail.name === 'department'){
+        filter.department = event.detail.value;
+    }
     debounce(filter);
 });
 
